@@ -2,7 +2,6 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
-import PackageDescription
 
 var swiftSettings: [SwiftSetting] = [
     .define("SQLITE_HAS_CODEC"),
@@ -24,7 +23,8 @@ let package = Package(
             targets: ["GRDB"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/crazzy263/SQLCipher", from: "1.0.1")
+        // rac-Shiraishi/SQLCipher: SQLite 3.50.4 (CVE-2025-6965 fix), SQLITE_DEBUG + LOAD_EXTENSION removed
+        .package(url: "https://github.com/rac-Shiraishi/SQLCipher", exact: "1.1.0")
     ],
     targets: [
         .target(
